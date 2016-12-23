@@ -1,1 +1,1 @@
-rvm 1.9.3@capistrano_notifier --install --create
+rvm ruby-2.2.3@capistrano_notifier --install --create
