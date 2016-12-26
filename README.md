@@ -39,7 +39,10 @@ If you specified `:method => :smtp`, you can specify `:smtp_settings`
 For example:
 
 ```rb
+set :notify_team, ask("\nNotify team? (y/n, default=n)", 'n', echo: true)
+
 set :notifier_mail_options, {
+  :need_notice => fetch(:notify_team),
   :method => :smtp,
   :from   => 'capistrano@domain.com',
   :to     => ['john@doe.com', 'jane@doe.com'],

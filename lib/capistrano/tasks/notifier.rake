@@ -17,4 +17,6 @@ namespace :deploy do
   end
 end
 
-after 'deploy:restart', 'deploy:notify:mail'
+if fetch(:notifier_mail_options)[:need_notice] == 'y'
+  after 'deploy:restart', 'deploy:notify:mail'
+end
