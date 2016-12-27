@@ -22,6 +22,16 @@ class Capistrano::Notifier::Base
     `git log #{git_range} --no-merges --format=format:"%h %s (%an)"`
   end
 
+  def git_last_tag
+    `git describe --abbrev=0`
+  end
+
+  def git_last_tag_info
+    return unless git_last_tag
+
+    `git show #{git_last_tag} --notes --pretty=oneline --name-only`
+  end
+
   def git_previous_revision
     fetch(:previous_revision).try(:[], 0,7)
   end

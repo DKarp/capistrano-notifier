@@ -30,6 +30,9 @@
       </tbody>
     </table>
 
+    <h3>Tag:</h3>
+    <p><%= git_last_tag_info %></p>
+
     <h3>Compare:</h3>
     <p><%= git_compare_prefix %>/<%= git_range.nil? ? '' : git_range.gsub('..', '...')%></p>
 
